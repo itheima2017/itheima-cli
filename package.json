@@ -1,6 +1,6 @@
 {
   "name": "itheima-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "itheima",
   "license": "MIT",
   "description": "传智研究院 项目模板脚手架",
@@ -19,6 +19,14 @@
   "scripts": {
     "test": ""
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itheima2017/itheima-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/itheima2017/itheima-cli/issues"
+  },
+  "homepage": "https://github.com/itheima2017/itheima-cli#readme",
   "dependencies": {
     "async": "^2.4.0",
     "chalk": "^2.1.0",
