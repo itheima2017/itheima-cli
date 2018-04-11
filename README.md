@@ -1,5 +1,7 @@
 # IT 黑马脚手架工具
 
+![黑马程序员](http://or45inefq.bkt.clouddn.com/%E9%BB%91%E9%A9%ACLogoTM.png)
+
 ## 设计目标
 
 * 提供一套通用的模式复用程序模板
