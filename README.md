@@ -37,7 +37,7 @@ itheima init <template-name> <project-name>
 * 示例
 
 ```bash
-itheima init itheimaAdmin-template my-AdminProject
+itheima init itheimaAdmin-template my-admin
 ```
 
 > `itheimaAdmin-template` 是 `传智研究院` 提供的 `后台管理基础模板`
@@ -55,7 +55,7 @@ itheima init itheimaAdmin-template my-AdminProject
 | ----------------------------------------------------------------------------- | ------------------------ |
 | [itheimaAdmin-template](https://github.com/itheima2017/itheimaAdmin-template) | `黑马Admin` 商用基础模板 |
 
-### 自定义模板
+## 自定义模板
 
 你可以自己动手编写模板来满足需要。
 
@@ -73,9 +73,9 @@ github      | username/repo
 bitbucket   | bitbucket:username/repo
 branches    | username/repo#branch
 
-> 如果您想从一个私有存储库下载使用 `--clone` 标志，cli将使用 `SSH keys` `git clone`。
+> 如果您想从一个私有存储库下载使用 `--clone` 标志， cli 将使用 `SSH keys` `git clone`。
 
-### 使用本地模板
+## 使用本地模板
 
 您还可以在本地文件系统上使用模板，而不是GitHub repo。
 
@@ -83,7 +83,7 @@ branches    | username/repo#branch
 itheima init ~/fs/path/to-custom-template my-project
 ```
 
-### 从头开始编写自定义模板
+## 从头开始编写自定义模板
 
 * 模板repo **必须** 有一个保存模板文件的 `template` 目录。
 
@@ -101,9 +101,9 @@ itheima init ~/fs/path/to-custom-template my-project
 
 > 强烈推荐大家可以参考官方的模板，作为你的代码模板
 >
-> 有问题欢迎大家留言&issues [issues](https://github.com/itheima2017/itheima-cli/issues)
+> 有问题欢迎大家 [issues](https://github.com/itheima2017/itheima-cli/issues)
 
-#### prompts
+### prompts
 
 元数据文件中的 `prompts` 字段应该是包含用户提示的对象哈希。
 
@@ -125,9 +125,9 @@ itheima init ~/fs/path/to-custom-template my-project
 
 所有提示完成后，`template` 内的所有文件将使用[Handlebars](http://handlebarsjs.com/) 进行渲染，并将提示结果作为数据。
 
-##### Prompts 条件控制
+### Prompts 条件控制
 
-可以通过添加 `when` 字段来提示条件，该字段应该是使用从先前提示收集的数据评估的JavaScript表达式。
+可以通过添加 `when` 字段来提示条件，该字段应该是使用从先前提示收集的数据评估的 JavaScript 表达式。
 
 例如：
 
@@ -150,7 +150,7 @@ itheima init ~/fs/path/to-custom-template my-project
 
 `lintConfig` 的提示只有在用户对 `lint` 提示符回答 yes 时才会触发。
 
-##### 我们预先加入了 `Handlebars` 助手
+### 我们预先加入了 `Handlebars` 助手
 
 两个过滤器可以使用, `if_eq` 和 `unless_eq`:
 
@@ -158,7 +158,7 @@ itheima init ~/fs/path/to-custom-template my-project
 {{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 ```
 
-##### 自定义 `Handlebars` 助手
+### 自定义 `Handlebars` 助手
 
 您可能想要在元数据文件中使用 `helpers` 属性注册更多的 `Handlebars` 助手。 对象键是助手名称：
 
@@ -176,11 +176,11 @@ module.exports = {
 {{ lowercase name }}
 ```
 
-#### 文件 filters
+### 文件 filters
 
 元数据文件中的 `filters` 字段应该是包含文件过滤规则的对象散列。
 
-对于每个条目，关键是 [minimatch glob 模式](https://github.com/isaacs/minimatch)，该值是在提示答案数据的上下文中评估的JavaScript表达式。
+对于每个条目，关键是 [minimatch glob 模式](https://github.com/isaacs/minimatch)，该值是在提示答案数据的上下文中评估的 JavaScript 表达式。
 
 例：
 
@@ -196,7 +196,7 @@ module.exports = {
 
 请注意，minimatch的 `dot` 选项设置为 `true` ，因此 `glob模式` 默认情况下也会匹配 dotfiles。
 
-#### 跳过渲染文件
+### 跳过渲染文件
 
 元数据文件中的 `skipInterpolation` 字段应该是[minimatch glob模式](https://github.com/isaacs/minimatch)。
 
@@ -212,7 +212,7 @@ module.exports = {
 
 > `src` 目录下的所有 `.vue` 文件将跳过模板渲染
 
-#### Metalsmith
+### Metalsmith
 
 `itheima-cli` 使用[metalsmith](https://github.com/segmentio/metalsmith) 来生成项目。
 
@@ -244,7 +244,7 @@ module.exports = {
 
 > 注意 `metalsmith` `opts` `helpers` 不要忘记传入
 
-#### 保留变量 meta.{js,json}
+### 保留变量 meta.{js,json}
 
 * `destDirName` - 目标目录名
 
@@ -297,7 +297,7 @@ module.exports = {
 
 ### 安装特定的模板版本
 
-`itheima-cli` 使用工具 [download-git-repo](https://github.com/flipxfx/download-git-repo)下载使用的官方模板。
+`itheima-cli` 使用工具 [download-git-repo](https://github.com/flipxfx/download-git-repo) 下载使用的官方模板。
 
 `download-git-repo` 工具允许您通过在井号（`＃`）后面提供所需的分支名称来指定特定存储库的特定分支。
 
@@ -316,6 +316,84 @@ itheima init 'itheimaAdmin-template#dev' mynewproject
 ```
 
 > 官方仓库 不用写用户名
+
+### 一份完整的例子
+
+模板根目录下 `meta.js`
+
+```js
+const path = require('path')
+const fs = require('fs')
+
+const {
+  systemCheck,
+  printMessage
+} = require('./utils')
+const pkg = require('./package.json')
+
+const templateVersion = pkg.version
+
+const { addTestAnswers } = require('./scenarios')
+
+module.exports = {
+  metalsmith: {
+    // When running tests for the template, this adds answers for the selected scenario
+    before: function(metalsmith, opts, helpers) {
+      const cwd = process.cwd()
+      systemCheck(cwd)
+      addTestAnswers(metalsmith, opts, helpers)
+    }
+  },
+  helpers: {
+    template_version() {
+      return templateVersion
+    }
+  },
+  prompts: {
+    name: {
+      when: 'isNotTest',
+      type: 'string',
+      required: true,
+      message: '项目名称',
+    },
+    description: {
+      when: 'isNotTest',
+      type: 'string',
+      required: false,
+      message: '项目说明',
+      default: '黑马admin管理后台',
+    },
+    author: {
+      when: 'isNotTest',
+      type: 'string',
+      required: false,
+      message: '作者',
+      default: 'yourname <yourname@xxxx.xxx>',
+    }
+  },
+  filters: {
+  },
+  skipInterpolation: [
+    "vueSPA/*.js",
+    "vueSPA/*.babelrc",
+    "vueSPA/*.editorconfig",
+    "vueSPA/*.eslintignore",
+    "vueSPA/*.gitignore",
+    "vueSPA/*.md",
+    "vueSPA/src/**/*.vue",
+    "vueSPA/src/**/*.js",
+    "vueSPA/src/**/*.md",
+    "javaSpringBoot2/*",
+    "javaSpringBoot2/.mvn/**/*",
+    "javaSpringBoot2/src/main/java/**/*",
+    "*"
+  ],
+  complete: async function(data, { chalk }) {
+    const green = chalk.green
+    printMessage(data, chalk)
+  },
+}
+```
 
 ## 版权
 
