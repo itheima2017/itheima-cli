@@ -319,7 +319,19 @@ itheima init 'itheimaAdmin-template#dev' mynewproject
 
 ### 一份完整的例子
 
-模板根目录下 `meta.js`
+模板根目录下 [meta.js](https://github.com/itheima2017/itheimaAdmin-template/blob/master/meta.js)
+
+该 `meta.js` 功能有:
+
+* [x] 系统自检
+* [x] npm 配置
+* [x] mysql 配置
+* [x] 自动初始 mysql 数据
+* [x] 自动初始 npm 包
+* [x] 自动初始 maven 吧
+* [x] 文件渲染过滤
+
+为了便于查看程序结构，去掉了部分功能代码。
 
 ```js
 const path = require('path')
