@@ -3,7 +3,7 @@
 const program = require('commander')
 const chalk = require('chalk')
 const path = require('path')
-// const exists = require('fs').existsSync
+const exists = require('fs').existsSync
 const generate = require('../lib/generate')
 const logger = require('../lib/logger')
 
@@ -22,7 +22,7 @@ program.on('--help', () => {
   console.log('  Examples:')
   console.log()
   console.log(chalk.gray('    # 创建一个模块'))
-  console.log('    $ itheima module:add example')
+  console.log('    $ itheima moduleAdd example')
   console.log()
 })
 
@@ -44,11 +44,11 @@ const name = program.args[0]
 const jsFile = 'index.js'
 const templatePath = path.join(process.cwd(), 'script', 'module-add')
 const to = path.join(process.cwd(), 'src', `module-${name}`)
-// const scriptJsFile = path.join(process.cwd(), 'script', jsFile)
+const scriptJsFile = path.join(process.cwd(), 'script', 'module-add', jsFile)
 
-// if (!exists(scriptJsFile)) {
-//   throw new Error('需要定义 module-add.js 文件')
-// }
+if (!exists(scriptJsFile)) {
+  logger.fatal(['需要定义 script/module-add/index.js 文件'])
+}
 
 generate(jsFile, name, templatePath, to, err => {
   if (err) logger.fatal(err)

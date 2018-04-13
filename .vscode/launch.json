@@ -20,9 +20,9 @@
       "type": "node",
       "request": "launch",
       "console": "integratedTerminal",
-      "cwd": "/Users/hans/Documents/labs",
-      "name": "启动程序 itheima module:add",
-      "program": "${workspaceFolder}/bin/itheima-module:add",
+      "cwd": "/Users/hans/Documents/labs/my-admin/vueSPA",
+      "name": "启动程序 itheima moduleAdd",
+      "program": "${workspaceFolder}/bin/itheima-moduleAdd",
       "args": [
         "example"
       ]

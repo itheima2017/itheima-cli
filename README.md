@@ -424,7 +424,7 @@ module.exports = {
 ### 命令格式
 
 ```bash
-itheima module:add example
+itheima moduleAdd example
 ```
 
 执行后就能在你的项目下，新建模块了。
