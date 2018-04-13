@@ -1,6 +1,6 @@
 # IT 黑马脚手架工具
 
-![黑马程序员](http://or45inefq.bkt.clouddn.com/%E9%BB%91%E9%A9%ACLogoTM.png)
+![黑马程序员](http://or45inefq.bkt.clouddn.com/logo-heima150.png)
 
 ## 设计目标
 
@@ -57,6 +57,10 @@ itheima init itheimaAdmin-template my-admin
 | ----------------------------------------------------------------------------- | ------------------------ |
 | [itheimaAdmin-template](https://github.com/itheima2017/itheimaAdmin-template) | `黑马Admin` 商用基础模板 |
 
+## 运行演示
+
+[![asciicast](https://asciinema.org/a/nOBpgtncyuPtGCkguvIuKxoYx.png)](https://asciinema.org/a/nOBpgtncyuPtGCkguvIuKxoYx)
+
 ## 自定义模板
 
 你可以自己动手编写模板来满足需要。
@@ -89,7 +93,7 @@ itheima init ~/fs/path/to-custom-template my-project
 
 * 模板repo **必须** 有一个保存模板文件的 `template` 目录。
 
-* 模板repo **可以** 有模板的元数据文件，可以是 `meta.js` 或 `meta.json` 文件。 它可以包含以下字段：
+* 模板repo **可以** 有模板的元数据文件，文件是 `meta.js` 。 它可以包含以下字段：
 
    * `prompts`：用于收集用户选项数据;
 
@@ -309,7 +313,7 @@ module.exports = {
 itheima init '<template-name>#<branch-name>' <project-name>
 ```
 
-列子:
+示例:
 
 安装 [`1.0` branch](https://github.com/itheima2017/itheimaAdmin-template/dev/1.0) of the webpack-simple vue template:
 
@@ -319,7 +323,7 @@ itheima init 'itheimaAdmin-template#dev' mynewproject
 
 > 官方仓库 不用写用户名
 
-### 一份完整的例子
+### 一份完整的示例
 
 模板根目录下 [meta.js](https://github.com/itheima2017/itheimaAdmin-template/blob/master/meta.js)
 
@@ -409,7 +413,68 @@ module.exports = {
 }
 ```
 
+## 模块添加命令
+
+### 使用场景
+
+新建业务模块，是所有业务系统都要遇到的，按规范一通配置和编写。
+
+这种有规律的事情，可以用脚本替你执行。
+
+### 命令格式
+
+```bash
+itheima module:add example
+```
+
+执行后就能在你的项目下，新建模块了。
+
+### 模板编写要求
+
+已下以前端 `vue` `spa` 项目举例
+
+* 目录格式
+
+```bash
+├── script                    脚本目录
+│   └── module-add            模块添加
+│       ├── index.js          添加脚本
+│       └── template          模板目录
+```
+
+* `index.js` 参考
+
+```js
+module.exports = {
+  prompts: {
+    name: {
+      type: 'string',
+      required: true,
+      message: '模块名称'
+    },
+    author: {
+      type: 'string',
+      required: false,
+      message: '模块',
+      default: 'yourname <yourname@xxxx.xxx>'
+    },
+    description: {
+      type: 'string',
+      required: false,
+      message: '模块说明',
+      default: ''
+    }
+  }
+}
+```
+
+这里简单的配置模块名称、模块作者、模块说明
+
+复杂配置同上 `itheima init` 操作
+
 ## 版权
+
+[MIT](https://opensource.org/licenses/MIT) license.
 
 @传智研究院-研发部
 

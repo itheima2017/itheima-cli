@@ -1,13 +1,14 @@
 {
   "name": "itheima-cli",
-  "version": "1.0.8",
+  "version": "1.0.13",
   "author": "itheima",
   "license": "MIT",
   "description": "传智研究院 项目模板脚手架",
   "preferGlobal": true,
   "bin": {
     "itheima": "bin/itheima",
-    "itheima-init": "bin/itheima-init"
+    "itheima-init": "bin/itheima-init",
+    "itheima-module:add": "bin/itheima-module:add"
   },
   "keywords": [
     "cli",

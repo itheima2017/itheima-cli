@@ -9,11 +9,22 @@
       "request": "launch",
       "console": "integratedTerminal",
       "cwd": "/Users/hans/Documents/labs",
-      "name": "启动程序",
+      "name": "启动程序 itheima-init",
       "program": "${workspaceFolder}/bin/itheima-init",
       "args": [
         "itheimaAdmin-template",
         "my-admin"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "cwd": "/Users/hans/Documents/labs",
+      "name": "启动程序 itheima module:add",
+      "program": "${workspaceFolder}/bin/itheima-module:add",
+      "args": [
+        "example"
       ]
     }
   ]

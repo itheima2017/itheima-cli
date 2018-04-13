@@ -1,0 +1,67 @@
+#!/usr/bin/env node
+
+const program = require('commander')
+const chalk = require('chalk')
+const path = require('path')
+// const exists = require('fs').existsSync
+const generate = require('../lib/generate')
+const logger = require('../lib/logger')
+
+/**
+ * Usage.
+ */
+
+program
+  .usage('<module-name>')
+
+/**
+ * Help.
+ */
+
+program.on('--help', () => {
+  console.log('  Examples:')
+  console.log()
+  console.log(chalk.gray('    # 创建一个模块'))
+  console.log('    $ itheima module:add example')
+  console.log()
+})
+
+/**
+ * Help.
+ */
+
+function help () {
+  program.parse(process.argv)
+  if (program.args.length < 1) return program.help()
+}
+help()
+
+/**
+ * Settings.
+ */
+
+const name = program.args[0]
+const jsFile = 'index.js'
+const templatePath = path.join(process.cwd(), 'script', 'module-add')
+const to = path.join(process.cwd(), 'src', `module-${name}`)
+// const scriptJsFile = path.join(process.cwd(), 'script', jsFile)
+
+// if (!exists(scriptJsFile)) {
+//   throw new Error('需要定义 module-add.js 文件')
+// }
+
+generate(jsFile, name, templatePath, to, err => {
+  if (err) logger.fatal(err)
+  console.log()
+  logger.success('模块添加完成')
+})
+
+// console.log(moduleName, scriptJsFile)
+
+// if (exists(scriptJsFile)) {
+//   const req = require(path.resolve(scriptJsFile))
+//   if (req === undefined || req === null) {
+//     throw new Error('module-add.js 需要定义函数入口')
+//   }
+//   req()
+// }
