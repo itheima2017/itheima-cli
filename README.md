@@ -42,7 +42,7 @@ itheima init <template-name> <project-name>
 itheima init itheimaAdmin-template my-admin
 ```
 
-> `itheimaAdmin-template` 是 `传智研究院` 提供的 `后台管理基础模板`
+> `itheimaAdmin-template` 是 `传智研究院` 提供的 `后台管理模板`
 
 * 参数选项
 
@@ -59,7 +59,7 @@ itheima init itheimaAdmin-template my-admin
 
 ## 运行演示
 
-[![asciicast](https://asciinema.org/a/nOBpgtncyuPtGCkguvIuKxoYx.png)](https://asciinema.org/a/nOBpgtncyuPtGCkguvIuKxoYx)
+[![asciicast](http://or45inefq.bkt.clouddn.com/itheima-cli.gif)](https://asciinema.org/a/nOBpgtncyuPtGCkguvIuKxoYx)
 
 ## 自定义模板
 
